@@ -1,4 +1,5 @@
 # start starship shell prompt
+export STARSHIP_CONFIG=~/repos/dotfiles/starship.toml
 eval "$(starship init zsh)"
 
 # Source manjaro-zsh-configuration
