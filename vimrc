@@ -34,6 +34,7 @@ let g:lightline = {
       \ }
 
 " color mapping 
+let g:seoul256_background = 233
 colo seoul256
 set background=dark
 
