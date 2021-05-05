@@ -55,3 +55,5 @@ alias ei3rc="vim ~/.i3/config"
 alias eicons="vim ~/.i3/app-icons.json"
 alias gfpush='git push --force-with-lease --set-upstream origin $(git_current_branch)'
 alias _scratch="i3-msg move scratchpad"
+
+~/repos/fm6000 -c yellow -dog
