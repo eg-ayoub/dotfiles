@@ -1,7 +1,7 @@
 # Don't print a new line at the start of the prompt
 # add_newline = false
 format="""$directory$git_branch$git_status$git_state
-$character
+$python$character
 """
 [directory]
 truncation_symbol = ".../"
@@ -14,3 +14,6 @@ error_symbol = "[✖](bold red)"     # The "success_symbol" segment is being set
 [package]
 disabled = true
 
+[python]
+pyenv_version_name = true
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'

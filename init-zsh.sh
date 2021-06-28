@@ -56,4 +56,7 @@ alias eicons="vim ~/.i3/app-icons.json"
 alias gfpush='git push --force-with-lease --set-upstream origin $(git_current_branch)'
 alias _scratch="i3-msg move scratchpad"
 
-~/repos/fm6000 -c yellow -dog
+~/repos/fetch-master-6000/fm6000 -c yellow -dog
+
+# add local bin to path 
+export PATH=/home/ayoub/.local/bin:$PATH
