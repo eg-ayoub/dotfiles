@@ -60,3 +60,7 @@ alias _scratch="i3-msg move scratchpad"
 
 # add local bin to path 
 export PATH=/home/ayoub/.local/bin:$PATH
+
+# arrows search
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
