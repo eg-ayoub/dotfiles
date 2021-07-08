@@ -15,23 +15,24 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'kien/rainbow_parentheses.vim'
 " Plug 'mg979/vim-visual-multi'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
 " lightline config
 let g:lightline = {
-	\ 'colorscheme': 'seoul256',
-	\}
+    \ 'colorscheme': 'seoul256',
+    \}
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+    \ 'colorscheme': 'seoul256',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ }
 
 " color mapping 
 let g:seoul256_background = 233
@@ -73,14 +74,14 @@ noremap <leader>0 :tablast<cr>
 
 " use ag
 if executable('ag')
-	" use ag over grep
-	set grepprg=ag\ --nogroup\ --nocolor\ --column
-	
-	" use ag in ctrlp
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-	
-	" no need for cache anymore
-	let g:ctrlp_use_caching = 0
+    " use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+
+    " use ag in ctrlp
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " no need for cache anymore
+    let g:ctrlp_use_caching = 0
 endif
 
 " some salt-vim necessary stuff
@@ -107,12 +108,10 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" default to 4spaces per tab
-:set tabstop=4
 
 " cursor line 
 :set cursorline
 
 " tabs view
-:set listchars=tab:\┊\ 
+:set listchars=eol:↲,space:·,trail:⨯,extends:>,precedes:<,tab:\┊\
 :set list

@@ -33,9 +33,9 @@ export MANPAGER="env MAN_PN=1 vim -M +MANPAGER -"
 # repos
 : > ~/.repo_list
 find ~/repos -name .git -type d -prune | while read d; do
-   cd $d/..
-   echo "$PWD" >> ~/.repo_list
-   cd $OLDPWD
+  cd $d/..
+  echo "$PWD" >> ~/.repo_list
+  cd $OLDPWD
 done
 
 
