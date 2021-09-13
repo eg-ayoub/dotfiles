@@ -35,9 +35,8 @@ let g:lightline = {
     \ }
 
 " color mapping 
-let g:seoul256_background = 233
+let g:seoul256_background = 237
 colo seoul256
-set background=dark
 
 " change leader
 let mapleader=" "
