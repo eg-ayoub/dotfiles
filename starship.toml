@@ -1,8 +1,11 @@
 # Don't print a new line at the start of the prompt
 # add_newline = false
-format="""$directory$git_branch$git_status$git_state
+format = """$directory$git_branch$git_status$git_state
 $python$character
 """
+
+command_timeout = 10000
+
 [directory]
 truncation_symbol = ".../"
 # Replace the "❯" symbol in the prompt with "➜"
