@@ -1,3 +1,6 @@
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
 font:
   normal:
     family: Hack Nerd Font Mono
@@ -15,7 +18,7 @@ font:
     family: Hack Nerd Font Mono
     style: Bold Italic
 
-  size: 11
+  size: 12
 
 # Colors (Seoul256)
 colors:
