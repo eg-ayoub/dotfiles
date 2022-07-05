@@ -2,7 +2,7 @@ call plug#begin('~/.config/vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'preservim/nerdcommenter'
@@ -19,24 +19,13 @@ Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
-" lightline config
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \}
-let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-    \ },
-    \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead'
-    \ },
-    \ }
+      \ 'colorscheme': 'nord',
+      \ }
 
-" color mapping 
-let g:seoul256_background = 237
-colo seoul256
+let g:nord_uniform_status_lines = 1
+
+colorscheme nord
 
 " change leader
 let mapleader=" "
@@ -112,5 +101,5 @@ au Syntax * RainbowParenthesesLoadBraces
 :set cursorline
 
 " tabs view
-:set listchars=eol:↲,space:·,trail:⨯,extends:>,precedes:<,tab:\┊\
-:set list
+" :set listchars=eol:↲,space:·,trail:⨯,extends:>,precedes:<,tab:\┊\
+" :set list
