@@ -1,0 +1,17 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username$hostname$directory$git_branch$git_status$git_state
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[directory]
+format = '[:](bold green)[$path]($style)[$read_only]($read_only_style) '
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+
