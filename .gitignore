@@ -49,3 +49,4 @@ monitors.xml~
 pop-shell/
 welcome.conf
 xdg-terminals.list
+zsh/init.zsh.zwc

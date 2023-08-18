@@ -1,6 +1,9 @@
 [font.normal]
 family = "Inconsolata Nerd Font"
 
+[window]
+opacity = 0.8
+
 [colors.primary]
 background = "#2d353b"
 foreground = "#d3c6aa"
