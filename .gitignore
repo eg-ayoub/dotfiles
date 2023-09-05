@@ -28,7 +28,8 @@ systemd
 Thunar
 user-dirs.dirs
 user-dirs.locale
-variety
+/variety/*
+!/variety/scripts/
 vlc
 volumeicon
 xed
@@ -50,3 +51,4 @@ pop-shell/
 welcome.conf
 xdg-terminals.list
 zsh/init.zsh.zwc
+nvtop/
