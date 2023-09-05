@@ -1,6 +1,7 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 from libqtile import qtile
+from .utils import parse_titles
 
 screens = [
     Screen(
@@ -33,9 +34,10 @@ screens = [
                     urgent_text="#e67e80",
                     fontsize=14,
                     font="Hack Nerd Font"),
-                widget.WindowName(
+                widget.WindowTabs(
                     foreground="#809185",
                     fontsize=14,
+                    parse_text=parse_titles,
                 ),
                 # system tray
                 widget.Systray(
