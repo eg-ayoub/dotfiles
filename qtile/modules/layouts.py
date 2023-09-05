@@ -25,4 +25,5 @@ floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(title='pinentry'),  # GPG key password entry
     Match(title='RPCSX'),  # RPCSX
+    Match(title='SDL Guide'),  # RPCSX
 ])

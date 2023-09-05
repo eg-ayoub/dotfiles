@@ -36,3 +36,16 @@ xfce4
 yay
 qtile/__pycache__
 qtile/modules/__pycache__
+.avalonia-build-tasks/
+.gsd-keyboard.settings-ported
+GNOME-xdg-terminals.list
+Mesen2/
+Vencord/
+autostart/bell off.desktop
+dleyna-renderer-service.conf
+evolution/
+monitors.xml
+monitors.xml~
+pop-shell/
+welcome.conf
+xdg-terminals.list
