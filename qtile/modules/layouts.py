@@ -1,10 +1,18 @@
 from libqtile import layout
 from libqtile.config import Match
+from .utils import get_config
+
+config = get_config()
 
 layouts = [
-    layout.MonadTall(margin=8, border_focus='#a7c080',
-                     border_normal='#343f44', ratio=0.6,
-                     max_ratio=0.8, min_ratio=0.2),
+    layout.MonadTall(
+        margin=config["layout"]["mtall"]["margin"],
+        border_focus=config["layout"]["colors"]["focus"],
+        border_normal=config["layout"]["colors"]["normal"],
+        ratio=config["layout"]["mtall"]["ratio"],
+        max_ratio=config["layout"]["mtall"]["max_ratio"],
+        min_ratio=config["layout"]["mtall"]["min_ratio"],
+    ),
     #layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),
     # Try more layouts by unleashing below layouts.

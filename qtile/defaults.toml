@@ -1,0 +1,60 @@
+[groups]
+names = [ "www", "irc", "dev", "dev.", "term", "log", "sys", "misc", "mov" ]
+
+[groups.shortcuts]
+azerty = [ 'ampersand', 'eacute', 'quotedbl', 'apostrophe', 'parenleft', 'minus', 'egrave', 'underscore', 'ccedilla' ]
+qwerty = [ '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
+
+[scratch.term]
+width = 0.8
+height = 0.6
+opacity = 0.8
+
+[layout.colors]
+normal = "#343f44"
+focus = "#a7c080"
+
+[layout.mtall]
+margin = 8
+ratio = 0.6
+max_ratio = 0.8
+min_ratio = 0.2
+
+[bar.colors]
+fallback = "#2d394e"
+apps = "#a7c080"
+exit = "#e67e80"
+this = "#a7c080"
+other = "#dbbc7f"
+urgent = "#e67e80"
+
+[bar.colors.background]
+normal = "#343f44"
+bright = "#475258"
+
+[bar.colors.foreground]
+normal = "#809185"
+bright = "#9da9a0"
+dark = "#2d394e"
+
+[bar.main]
+height = 26
+
+[bar.main.gbox]
+padding = 4
+
+[bar.main.font]
+size = 14
+normal = "Hack Nerd Font"
+bold = "Hack Nerd Font Bold"
+
+[bar.secondary]
+height = 26
+
+[bar.secondary.gbox]
+padding = 4
+
+[bar.secondary.font]
+size = 14
+normal = "Hack Nerd Font"
+bold = "Hack Nerd Font Bold"

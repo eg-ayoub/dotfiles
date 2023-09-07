@@ -1,21 +1,13 @@
 from libqtile.config import ScratchPad, DropDown, Key, Group
 from libqtile.command import lazy
 from .keys import keys, mod, terminal
+from .utils import get_config
 
-group_names = [
-    "www", "irc", "dev", "dev.", "term",
-    "log", "sys", "misc", "mov"
-]
+config = get_config()
 
-group_shortcuts_azerty = [
-    'ampersand', 'eacute', 'quotedbl', 'apostrophe', 'parenleft',
-    'minus', 'egrave', 'underscore', 'ccedilla'
-]
-
-group_shortcuts_qwerty = [
-    '1', '2', '3', '4', '5',
-    '6', '7', '8', '9'
-]
+group_names = config["groups"]["names"]
+group_shortcuts_azerty = config["groups"]["shortcuts"]["azerty"]
+group_shortcuts_qwerty = config["groups"]["shortcuts"]["qwerty"]
 
 groups = [
     ScratchPad(
@@ -24,9 +16,9 @@ groups = [
             DropDown(
                 "terminal",
                 terminal,
-                width=0.8,
-                height=0.6,
-                opacity=0.8,
+                width=config["scratch"]["term"]["width"],
+                height=config["scratch"]["term"]["height"],
+                opacity=config["scratch"]["term"]["opacity"],
             )
         ],
     ),

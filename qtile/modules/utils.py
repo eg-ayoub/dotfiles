@@ -1,3 +1,7 @@
+from pathlib import Path
+from functools import cache
+import tomli
+
 def parse_titles(text):
     """Parse title and handle bold"""
     ret = []
@@ -18,3 +22,24 @@ def _parse_title(title):
             title = title[:20]
             return title + prg
     return title
+
+def _deep_update(dest, upd):
+    """Update nested dict"""
+    for k, val in upd.items():
+        if isinstance(val, dict):
+            dest[k] = _deep_update(dest.get(k, {}), val)
+        else:
+            dest[k] = val
+    return dest
+
+@cache
+def get_config():
+    """Get config"""
+    default_config_path = Path.home() / ".config/qtile/defaults.toml"
+    if not default_config_path.is_file():
+        raise FileNotFoundError("Default config not found")
+    config = tomli.loads(default_config_path.read_text(encoding="utf-8"))
+    config_path = Path.home() / ".config/qtile/config.toml"
+    if config_path.is_file():
+        config = _deep_update(config, tomli.loads(config_path.read_text(encoding="utf-8")))
+    return config

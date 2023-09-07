@@ -35,6 +35,7 @@ volumeicon
 xed
 xfce4
 yay
+qtile/config.toml
 qtile/__pycache__
 qtile/modules/__pycache__
 .avalonia-build-tasks/

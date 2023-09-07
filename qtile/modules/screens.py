@@ -1,7 +1,9 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 from libqtile import qtile
-from .utils import parse_titles
+from .utils import parse_titles, get_config
+
+config = get_config()
 
 screens = [
     Screen(
@@ -12,71 +14,78 @@ screens = [
                                mouse_callbacks={
                                    "Button1": lambda: qtile.cmd_spawn("rofi -show drun -show-icons")
                                },
-                               foreground="#2d394e",
-                               background="#a7c080",
-                               fontsize=14,
-                               font="Hack Nerd Font Bold"),
+                               foreground=config["bar"]["colors"]["foreground"]["dark"],
+                               background=config["bar"]["colors"]["apps"],
+                               fontsize=config["bar"]["main"]["font"]["size"],
+                               font=config["bar"]["main"]["font"]["bold"]),
                 widget.GroupBox(
                     disable_drag=True,
                     rounded=False,
+                    padding=config["bar"]["main"]["gbox"]["padding"],
                     highlight_method="block",
                     urgent_alert_method="block",
-                    block_highlight_text_color="#2d394e",
-                    background="#475258",
-                    active="#9da9a0",
-                    inactive="#2d394e",
-                    highlight_color=["#2d394e", "#2d394e"],
-                    this_current_screen_border="#a7c080",
-                    this_screen_border="#a7c080",
-                    other_current_screen_border="#dbbc7f",
-                    other_screen_border="#dbbc7f",
-                    urgent_border="#e67e80",
-                    urgent_text="#e67e80",
-                    fontsize=14,
-                    font="Hack Nerd Font"),
+                    block_highlight_text_color=config["bar"]["colors"]["foreground"]["dark"],
+                    background=config["bar"]["colors"]["background"]["bright"],
+                    active=config["bar"]["colors"]["foreground"]["bright"],
+                    inactive=config["bar"]["colors"]["fallback"],
+                    highlight_color=[
+                        config["bar"]["colors"]["fallback"],
+                        config["bar"]["colors"]["fallback"]
+                    ],
+                    this_current_screen_border=config["bar"]["colors"]["this"],
+                    this_screen_border=config["bar"]["colors"]["this"],
+                    other_current_screen_border=config["bar"]["colors"]["other"],
+                    other_screen_border=config["bar"]["colors"]["other"],
+                    urgent_border=config["bar"]["colors"]["urgent"],
+                    urgent_text=config["bar"]["colors"]["urgent"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                    font=config["bar"]["main"]["font"]["normal"]),
                 widget.WindowTabs(
-                    foreground="#809185",
-                    fontsize=14,
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                    font=config["bar"]["main"]["font"]["normal"],
                     parse_text=parse_titles,
                 ),
                 # system tray
                 widget.Systray(
-                    background="#475258"
+                    background=config["bar"]["colors"]["background"]["bright"],
                 ),
                 # time
                 widget.Clock(
                     format="%I:%M:%S %p",
-                    background="#475258",
-                    foreground="#9da9a0",
-                    fontsize=14,
+                    background=config["bar"]["colors"]["background"]["bright"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    font=config["bar"]["main"]["font"]["normal"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
                 ),
                 # layout
                 widget.CurrentLayout(
-                    background="#475258",
-                    foreground="#9da9a0",
-                    fontsize=14,
+                    background=config["bar"]["colors"]["background"]["bright"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    font=config["bar"]["main"]["font"]["normal"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(
                     configured_keyboards=['fr', 'gb'],
                     option='grp:alt_space_toggle',
-                    fontsize=14,
-                    font="Hack Nerd Font Bold",
-                    background="#475258",
-                    foreground="#9da9a0"
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                    font=config["bar"]["main"]["font"]["bold"],
+                    background=config["bar"]["colors"]["background"]["bright"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
                 ),
                 # exit
                 widget.TextBox("LOGOUT",
                                mouse_callbacks={
                                    "Button1": lambda: qtile.cmd_spawn("xfce4-session-logout")
                                },
-                               foreground="#2d394e",
-                               background="#e67e80",
-                               fontsize=14,
-                               font="Hack Nerd Font Bold")
+                               foreground=config["bar"]["colors"]["foreground"]["dark"],
+                               background=config["bar"]["colors"]["exit"],
+                               fontsize=config["bar"]["main"]["font"]["size"],
+                               font=config["bar"]["main"]["font"]["bold"])
             ],
-            24,
-            background="#343f44",
+            config["bar"]["main"]["height"],
+            background=config["bar"]["colors"]["background"]["normal"],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -87,28 +96,34 @@ screens = [
                 widget.GroupBox(
                     disable_drag=True,
                     rounded=False,
+                    padding=config["bar"]["secondary"]["gbox"]["padding"],
                     highlight_method="block",
                     urgent_alert_method="block",
-                    block_highlight_text_color="#2d394e",
-                    background="#475258",
-                    active="#9da9a0",
-                    inactive="#2d394e",
-                    highlight_color=["#2d394e", "#2d394e"],
-                    this_current_screen_border="#a7c080",
-                    this_screen_border="#a7c080",
-                    other_current_screen_border="#dbbc7f",
-                    other_screen_border="#dbbc7f",
-                    urgent_border="#e67e80",
-                    urgent_text="#e67e80",
-                    fontsize=14,
-                    font="Hack Nerd Font"),
-                widget.WindowName(
-                    foreground="#809185",
-                    fontsize=14,
+                    block_highlight_text_color=config["bar"]["colors"]["foreground"]["dark"],
+                    background=config["bar"]["colors"]["background"]["bright"],
+                    active=config["bar"]["colors"]["foreground"]["bright"],
+                    inactive=config["bar"]["colors"]["fallback"],
+                    highlight_color=[
+                        config["bar"]["colors"]["fallback"],
+                        config["bar"]["colors"]["fallback"]
+                    ],
+                    this_current_screen_border=config["bar"]["colors"]["this"],
+                    this_screen_border=config["bar"]["colors"]["this"],
+                    other_current_screen_border=config["bar"]["colors"]["other"],
+                    other_screen_border=config["bar"]["colors"]["other"],
+                    urgent_border=config["bar"]["colors"]["urgent"],
+                    urgent_text=config["bar"]["colors"]["urgent"],
+                    fontsize=config["bar"]["secondary"]["font"]["size"],
+                    font=config["bar"]["secondary"]["font"]["normal"]),
+                widget.WindowTabs(
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    fontsize=config["bar"]["secondary"]["font"]["size"],
+                    font=config["bar"]["secondary"]["font"]["normal"],
+                    parse_text=parse_titles,
                 ),
             ],
-            24,
-            background="#343f44",
+            config["bar"]["secondary"]["height"],
+            background=config["bar"]["colors"]["background"]["normal"],
         ),
     )
 ]
