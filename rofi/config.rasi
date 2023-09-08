@@ -1,8 +1,8 @@
-@theme "/home/ayoub/.local/share/rofi/themes/squared-everforest.rasi"
+//@theme "/home/ayoub/.local/share/rofi/themes/squared-everforest.rasi"
 
 configuration {
 	modi: "drun,run,window,vscode-recent";
     show-icons:                 true;
 	drun-display-format:        "{name}";
 	window-format:              "{w} | {c} | {t}";
-}
+}@theme "/home/ayoub/.local/share/rofi/themes/rounded-blue-dark.rasi"
