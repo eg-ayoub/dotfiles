@@ -59,7 +59,9 @@ keys = [
     # pass
     Key([mod], "i", lazy.spawn("rofi-pass"), desc="Spawn a command using a prompt widget"),
     # vscode recents
-    Key([mod], "o", lazy.spawn("rofi -show vscode-recent"), desc="VSCode recents"),
+    Key([mod], "o", lazy.spawn("rofi -show vscode-recent"), desc="VSCode recents"),    
+    # vscode recents
+    Key([mod], "v", lazy.spawn("xfce4-clipman-history"), desc="VSCode recents"),
     # screenshot
     Key([], "Print", lazy.spawn("xfce4-screenshooter"), desc="Take a screenshot")
 ]
