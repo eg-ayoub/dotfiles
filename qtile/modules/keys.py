@@ -1,4 +1,4 @@
-from libqtile.config import Key, KeyChord
+from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -52,6 +52,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     # kill window
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
+    # stop floating
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
     # restart qtile
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     # rofi launcher

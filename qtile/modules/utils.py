@@ -16,7 +16,7 @@ def parse_titles(text):
 
 def _parse_title(title):
     """Parse title to get shorter program name"""
-    for prg in ["- Visual Studio Code", "- Google Chrome"]:
+    for prg in ["- Visual Studio Code", "- Google Chrome", "- Opera"]:
         if prg in title:
             title = title[:-len(prg)]
             title = title[:20]

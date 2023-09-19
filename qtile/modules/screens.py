@@ -1,4 +1,5 @@
-from libqtile import bar, widget
+from libqtile import bar
+from qtile_extras import widget
 from libqtile.config import Screen
 from libqtile import qtile
 from .utils import parse_titles, get_config
@@ -52,18 +53,16 @@ screens = [
                 ),
                 # time
                 widget.Clock(
-                    format="%I:%M:%S %p",
+                    format="%I:%M",
                     background=config["bar"]["colors"]["background"]["bright"],
                     foreground=config["bar"]["colors"]["foreground"]["bright"],
                     font=config["bar"]["main"]["font"]["normal"],
                     fontsize=config["bar"]["main"]["font"]["size"],
                 ),
-                # layout
-                widget.CurrentLayout(
+                widget.CurrentLayoutIcon(
+                    scale=0.65,
                     background=config["bar"]["colors"]["background"]["bright"],
                     foreground=config["bar"]["colors"]["foreground"]["bright"],
-                    font=config["bar"]["main"]["font"]["normal"],
-                    fontsize=config["bar"]["main"]["font"]["size"],
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(

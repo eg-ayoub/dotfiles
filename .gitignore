@@ -20,6 +20,7 @@ nano
 neofetch
 nitrogen
 obs-studio
+opera
 pavucontrol.ini
 pineflash
 pulse
@@ -33,6 +34,7 @@ user-dirs.locale
 !/variety/scripts/
 vlc
 volumeicon
+weechat
 xed
 xfce4
 yay

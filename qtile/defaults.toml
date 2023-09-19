@@ -45,8 +45,8 @@ padding = 4
 
 [bar.main.font]
 size = 14
-normal = "Hack Nerd Font"
-bold = "Hack Nerd Font Bold"
+normal = "Hack Nerd Font Mono"
+bold = "Hack Nerd Font Mono Bold"
 
 [bar.secondary]
 height = 26
