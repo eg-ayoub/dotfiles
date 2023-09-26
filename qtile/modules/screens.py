@@ -66,7 +66,7 @@ screens = [
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(
-                    configured_keyboards=['fr', 'gb'],
+                    configured_keyboards=['fr', 'us'],
                     option='grp:alt_space_toggle',
                     fontsize=config["bar"]["main"]["font"]["size"],
                     font=config["bar"]["main"]["font"]["bold"],
