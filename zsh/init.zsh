@@ -14,3 +14,7 @@ antigen apply
 alias gfpush="ggpush --force"
 
 eval "$(starship init zsh)"
+
+path+=("$HOME/.config/emacs/bin")
+
+export PATH
