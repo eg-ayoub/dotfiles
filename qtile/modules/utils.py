@@ -1,6 +1,31 @@
-from pathlib import Path
-from functools import cache
+"""Utils for qtile"""
+
+import gi
 import tomli
+
+gi.require_version('Gtk', '3.0')
+from functools import cache
+from pathlib import Path
+
+from gi.repository import Gtk
+
+
+def find_icon(appname):
+    """Find icon for appname"""
+    icon_theme = Gtk.IconTheme.get_default()
+
+    # normal attempt
+    icon = icon_theme.lookup_icon(appname, 48, 0)
+    if icon:
+        return icon.get_filename()
+
+    # attempt with capitalized appname
+    appname = appname.capitalize()
+    icon = icon_theme.lookup_icon(appname, 48, 0)
+    if icon:
+        return icon.get_filename()
+
+    return appname
 
 def parse_titles(text):
     """Parse title and handle bold"""
@@ -8,15 +33,15 @@ def parse_titles(text):
     titles = text.split(" | ")
     for title in titles:
         if title.startswith("<b>"):
-            ret.append("<b>" + _parse_title(title[3:-4]) + "</b>")
+            ret.append("<b>" + parse_title(title[3:-4]) + "</b>")
         else:
-            ret.append(_parse_title(title))
+            ret.append(parse_title(title))
     return " | ".join(ret)
 
 
-def _parse_title(title):
+def parse_title(title):
     """Parse title to get shorter program name"""
-    for prg in ["- Visual Studio Code", "- Google Chrome", "- Opera"]:
+    for prg in ["- Visual Studio Code", "- Google Chrome", "- Opera", "- Slack"]:
         if prg in title:
             title = title[:-len(prg)]
             title = title[:20]

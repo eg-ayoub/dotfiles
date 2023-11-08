@@ -34,6 +34,7 @@ from modules.groups import groups
 from modules.layouts import layouts, floating_layout
 from modules.mouse import mouse
 from modules.screens import screens
+from modules.hooks import *
 
 widget_defaults = dict(
     font="sans",

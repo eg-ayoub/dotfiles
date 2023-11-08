@@ -1,68 +1,91 @@
-from libqtile import bar
-from qtile_extras import widget
+from libqtile import bar, qtile
 from libqtile.config import Screen
-from libqtile import qtile
-from .utils import parse_titles, get_config
+from qtile_extras import widget
+
+from .utils import get_config, parse_title, find_icon
 
 config = get_config()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 # apps
-                widget.TextBox("APPS",
-                               mouse_callbacks={
-                                   "Button1": lambda: qtile.cmd_spawn("rofi -show drun -show-icons")
-                               },
-                               foreground=config["bar"]["colors"]["foreground"]["dark"],
-                               background=config["bar"]["colors"]["apps"],
-                               fontsize=config["bar"]["main"]["font"]["size"],
-                               font=config["bar"]["main"]["font"]["bold"]),
+                widget.Image(
+                    filename="~/.config/qtile/assets/icon.png",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn("rofi -show drun -show-icons")
+                    }
+                ),
+                widget.Spacer(
+                    length=4,
+                ),
+                widget.Sep(),
+                widget.Sep(),
+                # shortcuts
+                widget.LaunchBar(
+                    progs=[
+                        (find_icon("alacritty"), "alacritty", "terminal"),
+                        (find_icon("vscode"), "code", "code"),
+                        (find_icon("chrome"), "google-chrome-stable", "chrome"),
+                        (find_icon("slack"), "slack", "slack"),
+                        (find_icon("logseq"), "logseq", "logseq"),
+                    ],
+                ),
+                widget.Sep(),
+                widget.Sep(),
+                # windows
+                widget.TaskList(
+                    theme_mode="fallback",
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                    font=config["bar"]["main"]["font"]["normal"],
+                    parse_text=parse_title,
+                ),
+                # groups
                 widget.GroupBox(
                     disable_drag=True,
-                    rounded=False,
+                    rounded=True,
                     padding=config["bar"]["main"]["gbox"]["padding"],
-                    highlight_method="block",
+                    highlight_method="line",
                     urgent_alert_method="block",
-                    block_highlight_text_color=config["bar"]["colors"]["foreground"]["dark"],
-                    background=config["bar"]["colors"]["background"]["bright"],
+                    background=config["bar"]["colors"]["background"]["normal"],
+                    # text colors for group
                     active=config["bar"]["colors"]["foreground"]["bright"],
-                    inactive=config["bar"]["colors"]["fallback"],
+                    inactive=config["bar"]["colors"]["foreground"]["normal"],
+                    # this and other group highlight
                     highlight_color=[
                         config["bar"]["colors"]["fallback"],
                         config["bar"]["colors"]["fallback"]
                     ],
+                    # current screen
                     this_current_screen_border=config["bar"]["colors"]["this"],
                     this_screen_border=config["bar"]["colors"]["this"],
+                    # other screen
                     other_current_screen_border=config["bar"]["colors"]["other"],
                     other_screen_border=config["bar"]["colors"]["other"],
+                    # urgent
                     urgent_border=config["bar"]["colors"]["urgent"],
                     urgent_text=config["bar"]["colors"]["urgent"],
-                    fontsize=config["bar"]["main"]["font"]["size"],
-                    font=config["bar"]["main"]["font"]["normal"]),
-                widget.WindowTabs(
-                    foreground=config["bar"]["colors"]["foreground"]["bright"],
-                    fontsize=config["bar"]["main"]["font"]["size"],
-                    font=config["bar"]["main"]["font"]["normal"],
-                    parse_text=parse_titles,
+                    # font
+                    fontsize=config["bar"]["main"]["gbox"]["font"]["size"],
+                    font=config["bar"]["main"]["gbox"]["font"]["normal"]
                 ),
+                widget.Sep(),
+                widget.Sep(),
                 # system tray
                 widget.Systray(
-                    background=config["bar"]["colors"]["background"]["bright"],
+                    background=config["bar"]["colors"]["background"]["normal"],
                 ),
+                widget.Sep(),
+                widget.Sep(),
                 # time
                 widget.Clock(
                     format="%I:%M",
-                    background=config["bar"]["colors"]["background"]["bright"],
+                    background=config["bar"]["colors"]["background"]["normal"],
                     foreground=config["bar"]["colors"]["foreground"]["bright"],
                     font=config["bar"]["main"]["font"]["normal"],
                     fontsize=config["bar"]["main"]["font"]["size"],
-                ),
-                widget.CurrentLayoutIcon(
-                    scale=0.65,
-                    background=config["bar"]["colors"]["background"]["bright"],
-                    foreground=config["bar"]["colors"]["foreground"]["bright"],
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(
@@ -70,16 +93,24 @@ screens = [
                     option='grp:alt_space_toggle',
                     fontsize=config["bar"]["main"]["font"]["size"],
                     font=config["bar"]["main"]["font"]["bold"],
-                    background=config["bar"]["colors"]["background"]["bright"],
+                    background=config["bar"]["colors"]["background"]["normal"],
                     foreground=config["bar"]["colors"]["foreground"]["bright"],
                 ),
+                # layout
+                widget.CurrentLayoutIcon(
+                    scale=0.65,
+                    background=config["bar"]["colors"]["background"]["normal"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                ),
+                widget.Spacer(
+                    length=6,
+                ),
                 # exit
-                widget.TextBox("LOGOUT",
+                widget.TextBox("",
                                mouse_callbacks={
                                    "Button1": lambda: qtile.cmd_spawn("xfce4-session-logout")
                                },
-                               foreground=config["bar"]["colors"]["foreground"]["dark"],
-                               background=config["bar"]["colors"]["exit"],
+                               foreground=config["bar"]["colors"]["exit"],
                                fontsize=config["bar"]["main"]["font"]["size"],
                                font=config["bar"]["main"]["font"]["bold"])
             ],
@@ -90,7 +121,7 @@ screens = [
         ),
     ),
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.GroupBox(
                     disable_drag=True,
@@ -113,12 +144,15 @@ screens = [
                     urgent_border=config["bar"]["colors"]["urgent"],
                     urgent_text=config["bar"]["colors"]["urgent"],
                     fontsize=config["bar"]["secondary"]["font"]["size"],
-                    font=config["bar"]["secondary"]["font"]["normal"]),
-                widget.WindowTabs(
+                    font=config["bar"]["secondary"]["font"]["normal"]
+                ),
+                # windows
+                widget.TaskList(
+                    theme_mode="fallback",
                     foreground=config["bar"]["colors"]["foreground"]["bright"],
                     fontsize=config["bar"]["secondary"]["font"]["size"],
                     font=config["bar"]["secondary"]["font"]["normal"],
-                    parse_text=parse_titles,
+                    parse_text=parse_title,
                 ),
             ],
             config["bar"]["secondary"]["height"],

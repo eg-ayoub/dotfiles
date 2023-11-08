@@ -13,19 +13,7 @@ layouts = [
         max_ratio=config["layout"]["mtall"]["max_ratio"],
         min_ratio=config["layout"]["mtall"]["min_ratio"],
     ),
-    #layout.Columns(border_focus_stack='#d75f5f'),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 floating_layout = layout.Floating(float_rules=[

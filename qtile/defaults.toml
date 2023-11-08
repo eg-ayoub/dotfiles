@@ -1,5 +1,5 @@
 [groups]
-names = [ "www", "irc", "dev", "dev.", "term", "log", "sys", "misc", "mov" ]
+names = [ "", "", "", ".", "", "", "", "", "" ]
 
 [groups.shortcuts]
 azerty = [ 'ampersand', 'eacute', 'quotedbl', 'apostrophe', 'parenleft', 'minus', 'egrave', 'underscore', 'ccedilla' ]
@@ -38,13 +38,17 @@ bright = "#E6E6E6"
 dark = "#212121"
 
 [bar.main]
-height = 26
+height = 30
 
 [bar.main.gbox]
-padding = 4
+padding = 2
+
+[bar.main.gbox.font]
+size = 24
+normal = "Hack Nerd Font Mono"
 
 [bar.main.font]
-size = 14
+size = 16
 normal = "Hack Nerd Font Mono"
 bold = "Hack Nerd Font Mono Bold"
 
@@ -52,7 +56,7 @@ bold = "Hack Nerd Font Mono Bold"
 height = 26
 
 [bar.secondary.gbox]
-padding = 4
+padding = 2
 
 [bar.secondary.font]
 size = 14
