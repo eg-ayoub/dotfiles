@@ -15,4 +15,6 @@ alias gfpush="ggpush --force"
 
 eval "$(starship init zsh)"
 
+path+=('/home/ayoub/.local/bin')
+
 export PATH

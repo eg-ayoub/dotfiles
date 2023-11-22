@@ -1,5 +1,4 @@
-# kind mention to anhsirk0 for the colors https://codeberg.org/anhsirk0/alacritty-themes
-# based on https://protesilaos.com/emacs/ef-themes
+# based on https://unpkg.com/browse/alacritty-themes@4.1.5/themes/ 
 
 [font.normal]
 family = "Inconsolata Nerd Font"
@@ -8,31 +7,27 @@ family = "Inconsolata Nerd Font"
 opacity = 0.8
 
 [colors.primary]
-background = "#160f0f"
-foreground = "#d8cfd5"
-
-[colors.cursor]
-text = "#F7F7F7"
-cursor = "#434343"
+background = "#202734"
+foreground = "#CBCCC6"
 
 [colors.normal]
-black = "#000000"
-red = "#AA3731"
-green = "#448C27"
-yellow = "#CB9000"
-blue = "#325CC0"
-magenta = "#7A3E9D"
-cyan = "#0083B2"
-white = "#BBBBBB"
+black = "#191E2A"
+red = "#FF3333"
+green = "#BAE67E"
+yellow = "#FFA759"
+blue = "#73D0FF"
+magenta = "#FFD580"
+cyan = "#95E6CB"
+white = "#C7C7C7"
 
 [colors.bright]
-black = "#777777"
-red = "#F05050"
-green = "#60CB00"
-yellow = "#FFBC5D"
-blue = "#007ACC"
-magenta = "#E64CE6"
-cyan = "#00AACB"
+black = "#686868"
+red = "#F27983"
+green = "#A6CC70"
+yellow = "#FFCC66"
+blue = "#5CCFE6"
+magenta = "#FFEE99"
+cyan = "#95E6CB"
 white = "#FFFFFF"
 
 [env]
