@@ -1,3 +1,6 @@
+# kind mention to anhsirk0 for the colors https://codeberg.org/anhsirk0/alacritty-themes
+# based on https://protesilaos.com/emacs/ef-themes
+
 [font.normal]
 family = "Inconsolata Nerd Font"
 
@@ -5,8 +8,8 @@ family = "Inconsolata Nerd Font"
 opacity = 0.8
 
 [colors.primary]
-background = "#F7F7F7"
-foreground = "#434343"
+background = "#160f0f"
+foreground = "#d8cfd5"
 
 [colors.cursor]
 text = "#F7F7F7"
