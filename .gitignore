@@ -13,6 +13,7 @@ google-chrome
 gtk-2.0
 gtk-3.0
 gtk-4.0
+helm
 htop
 Logseq
 menus
@@ -39,6 +40,7 @@ volumeicon
 weechat
 xed
 xfce4
+yarn
 yay
 qtile/config.toml
 qtile/__pycache__
