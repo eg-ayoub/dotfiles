@@ -1,0 +1,8 @@
+require("modules.early-remap")
+require("modules.lazy-bootstrap")
+require("lazy").setup("modules.plugins")
+require("modules.remap")
+require("modules.look")
+require("modules.tsconfig")
+require("modules.lspconf")
+require("modules.lines")
