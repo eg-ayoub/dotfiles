@@ -62,8 +62,29 @@ zsh/init.zsh.zwc
 nvtop/
 
 # kde stuff
+baloofileinformationrc
+cef_user_data/
+deluge/
+filetypesrc
+haruna/
+harunarc
+heroic/
+katemetainfos
+katerc
+katevirc
+kfontinstuirc
+kiorc
+knfsshare
+ktorrent_infowidgetrc
+ktorrentrc
+lutris/
+plasmanotifyrc
+plasmawindowed-appletsrc
+plasmawindowedrc
+trashrc
 Trolltech.conf
 akregatorrc
+arkrc
 baloofilerc
 bluedevilglobalrc
 dolphinrc
@@ -76,6 +97,7 @@ kateschemarc
 kcmfonts
 kcminputrc
 kconf_updaterc
+KDE/
 kde.org/
 kdeconnect/
 kded5rc
@@ -101,6 +123,7 @@ plasma-localerc
 plasma-org.kde.plasma.desktop-appletsrc
 plasmashellrc
 powermanagementprofilesrc
+QtProject.conf
 session/
 spectaclerc
 systemsettingsrc
