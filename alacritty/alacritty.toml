@@ -32,3 +32,10 @@ white = "#FFFFFF"
 
 [env]
 WINIT_X11_SCALE_FACTOR = "2"
+
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control"
+action = "SpawnNewInstance"
+
