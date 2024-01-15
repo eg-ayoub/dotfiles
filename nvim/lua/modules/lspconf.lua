@@ -54,6 +54,12 @@ cmp.setup.cmdline(':', {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- bash LS
+require'lspconfig'.bashls.setup{
+    capabilities = capabilities,
+    filetypes = {"sh", "sh.in"},
+}
+
 -- python LS
 require 'lspconfig'.pylsp.setup {
     capabilities = capabilities,

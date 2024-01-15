@@ -8,10 +8,20 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 local ts_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', ts_builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', ts_builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
-    ts_builtin.grep_string({ search = vim.fn.input("Grep >") })
-end)
+vim.keymap.set('n', '<leader>ps', ts_builtin.live_grep)
 vim.keymap.set('n', '<leader>vh', ts_builtin.help_tags, {})
+
+-- harpoon
+local mark = require("harpoon.mark")
+-- local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<C-e>", "<cmd>:Telescope harpoon marks<CR>")
+
+-- vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+-- vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+-- vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
+-- vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -55,6 +65,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- format
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("v", "f", vim.lsp.buf.format)
 
 -- quick fix nav
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -67,3 +78,9 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- make exec
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- unmap arrows in normal mode
+vim.keymap.set("n", "<Up>", "<nop>")
+vim.keymap.set("n", "<Down>", "<nop>")
+vim.keymap.set("n", "<Left>", "<nop>")
+vim.keymap.set("n", "<Right>", "<nop>")
