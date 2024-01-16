@@ -7,12 +7,12 @@ qwerty = [ '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
 
 [scratch.term]
 width = 0.8
-height = 0.6
-opacity = 0.8
+height = 0.4
+opacity = 1
 
 [layout.colors]
 normal = "#212121"
-focus = "#1A73E8"
+focus = "#BB9AF7"
 
 [layout.mtall]
 margin = 8
@@ -22,20 +22,20 @@ min_ratio = 0.2
 
 [bar.colors]
 fallback = "#212121"
-apps = "#1A73E8"
-exit = "#E53935"
-this = "#1A73E8"
-other = "#F57C00"
-urgent = "#E53935"
+apps = "#BB9AF7"
+exit = "#F7768E"
+this = "#565F89"
+other = "#FF9E64"
+urgent = "#F7768E"
 
 [bar.colors.background]
-normal = "#212121"
-bright = "#3D3D3D"
+normal = "#1A1B26"
+bright = "#d5d6db"
 
 [bar.colors.foreground]
-normal = "#969696"
-bright = "#E6E6E6"
-dark = "#212121"
+normal = "#9699A3"
+bright = "#CFC9C2"
+dark = "#202734"
 
 [bar.main]
 height = 30
