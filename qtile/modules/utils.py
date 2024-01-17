@@ -1,6 +1,8 @@
 """Utils for qtile"""
 
 import gi
+import os
+import subprocess
 import tomli
 
 gi.require_version('Gtk', '3.0')
@@ -9,9 +11,24 @@ from pathlib import Path
 
 from gi.repository import Gtk
 
+from libqtile.utils import send_notification
+from libqtile.log_utils import logger
+
+def run_local(_ = None, script = None):
+    """Run a script in config folder"""
+    if not script:
+        logger.warning("Please pass a script to run_local")
+    run([os.path.expanduser(f"~/.config/qtile/{script}")])
+
+def run(*args, **kwargs):
+    """run a shell command."""
+    try:
+        ret = subprocess.run(*args, **kwargs)
+    except subprocess.CalledProcessError as exc:
+        logger.exception(exc)
 
 def find_icon(appname):
-    """Find icon for appname"""
+    """Find icon for appname."""
     icon_theme = Gtk.IconTheme.get_default()
 
     # normal attempt
@@ -28,7 +45,7 @@ def find_icon(appname):
     return appname
 
 def parse_titles(text):
-    """Parse title and handle bold"""
+    """Parse title and handle bold."""
     ret = []
     titles = text.split(" | ")
     for title in titles:
@@ -40,7 +57,7 @@ def parse_titles(text):
 
 
 def parse_title(title):
-    """Parse title to get shorter program name"""
+    """Parse title to get shorter program name."""
     for prg in ["- Visual Studio Code", "- Google Chrome", "- Opera", "- Slack"]:
         if prg in title:
             title = title[:-len(prg)]
@@ -49,7 +66,7 @@ def parse_title(title):
     return title
 
 def _deep_update(dest, upd):
-    """Update nested dict"""
+    """Update nested dict."""
     for k, val in upd.items():
         if isinstance(val, dict):
             dest[k] = _deep_update(dest.get(k, {}), val)
@@ -59,7 +76,7 @@ def _deep_update(dest, upd):
 
 @cache
 def get_config():
-    """Get config"""
+    """Read config files, overwrite values from the default."""
     default_config_path = Path.home() / ".config/qtile/defaults.toml"
     if not default_config_path.is_file():
         raise FileNotFoundError("Default config not found")

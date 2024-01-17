@@ -2,6 +2,8 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+from .utils import run_local
+
 # mod key
 mod = "mod4"
 
@@ -55,7 +57,7 @@ keys = [
     # stop floating
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
     # restart qtile
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "r", lazy.function(run_local,"pre_start.sh"), lazy.reload_config(), desc="Reload the config"),
     # rofi launcher
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="App launcher"),
     # pass

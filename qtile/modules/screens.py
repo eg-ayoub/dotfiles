@@ -94,7 +94,7 @@ screens = [
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(
-                    configured_keyboards=['fr', 'us altgr-intl'],
+                    configured_keyboards=['us altgr-intl', 'fr'],
                     option='grp:alt_space_toggle',
                     fontsize=config["bar"]["main"]["font"]["size"],
                     font=config["bar"]["main"]["font"]["bold"],
@@ -144,19 +144,6 @@ screens = [
                 widget.LaunchBar(progs=bar_progs),
                 widget.Sep(),
                 widget.Sep(),
-                # windows
-                widget.TaskList(
-                    rounded=False,
-                    highlight_method="block",
-                    theme_mode="fallback",
-                    foreground=config["bar"]["colors"]["foreground"]["bright"],
-                    background=config["bar"]["colors"]["background"]["normal"],
-                    border=config["bar"]["colors"]["this"],
-                    urgent_border=config["bar"]["colors"]["urgent"],
-                    fontsize=config["bar"]["main"]["font"]["size"],
-                    font=config["bar"]["main"]["font"]["normal"],
-                    parse_text=parse_title,
-                ),
                 # groups
                 widget.GroupBox(
                     disable_drag=True,
@@ -172,7 +159,7 @@ screens = [
                     highlight_color=[
                         config["bar"]["colors"]["fallback"],
                         config["bar"]["colors"]["fallback"]
-                    ],
+                        ],
                     # current screen
                     this_current_screen_border=config["bar"]["colors"]["this"],
                     this_screen_border=config["bar"]["colors"]["this"],
@@ -185,7 +172,22 @@ screens = [
                     # font
                     fontsize=config["bar"]["main"]["gbox"]["font"]["size"],
                     font=config["bar"]["main"]["gbox"]["font"]["normal"]
-                )
+                ),
+                widget.Sep(),
+                widget.Sep(),
+                # windows
+                widget.TaskList(
+                    rounded=False,
+                    highlight_method="block",
+                    theme_mode="fallback",
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    background=config["bar"]["colors"]["background"]["normal"],
+                    border=config["bar"]["colors"]["this"],
+                    urgent_border=config["bar"]["colors"]["urgent"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                    font=config["bar"]["main"]["font"]["normal"],
+                    parse_text=parse_title,
+                ),
             ],
             config["bar"]["secondary"]["height"],
             background=config["bar"]["colors"]["background"]["normal"],

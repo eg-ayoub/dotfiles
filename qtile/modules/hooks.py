@@ -1,19 +1,27 @@
 """Hooks for Qtile."""
 
-import os
-import subprocess
-
 from libqtile import hook
 from libqtile.utils import send_notification
+from libqtile.log_utils import logger
+
+from .utils import run_local
 
 @hook.subscribe.screen_change
-def restart_on_randr(_):
+def reconfigure_on_randr(_):
     """Run when screens are plugged/unplugged."""
-    send_notification("Restarting Qtile", "Restarting Qtile due to screen change")
+    logger.info("Reconfigure Qtile on screen_change")
+    send_notification("Reconfiguring", "Reconfiguring Qtile due to screen change")
 
-@hook.subscribe.startup_once
+@hook.subscribe.restart
+def restart():
+    """Runs when qtile restarts."""
+    logger.info("Restarting Qtile")
+    send_notification("Qtile restart", "Qtile is restarting")
+    run_local(script="pre_start.sh")
+
+@hook.subscribe.startup
 def autostart():
-    """Run when qtile starts."""
+    """Run when qtile starts or restarts."""
+    logger.info("Started Qtile")
     send_notification("Qtile started", "Qtile has started")
-    autostart_script = os.path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.Popen([autostart_script])
+    run_local(script="post_start.sh")
