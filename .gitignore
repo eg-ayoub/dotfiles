@@ -32,6 +32,7 @@ spotify
 strawberry
 systemd
 Thunar
+unity3d/
 user-dirs.dirs
 user-dirs.locale
 /variety/*
@@ -128,3 +129,17 @@ QtProject.conf
 session/
 spectaclerc
 systemsettingsrc
+Proton/
+autostart/urserver.desktop
+gthumb/
+hakuneko-desktop/
+jellyfin/
+kfontviewrc
+kinfocenterrc
+kwriterc
+mangal/
+okularrc
+plasmaparc
+systemmonitorrc
+yuzu/
+yuzurc
