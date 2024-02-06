@@ -18,7 +18,7 @@ def run_local(_ = None, script = None):
     """Run a script in config folder"""
     if not script:
         logger.warning("Please pass a script to run_local")
-    run([os.path.expanduser(f"~/.config/qtile/{script}")])
+    run([os.path.expanduser(f"~/.config/qtile/scripts/{script}")])
 
 def run(*args, **kwargs):
     """run a shell command."""

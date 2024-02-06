@@ -55,17 +55,17 @@ keys = [
     # kill window
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     # stop floating
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
     # restart qtile
-    Key([mod, "control"], "r", lazy.function(run_local,"pre_start.sh"), lazy.reload_config(), desc="Reload the config"),
-    # rofi launcher
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    # rofi drun
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons"), desc="App launcher"),
     # pass
     Key([mod], "i", lazy.spawn("rofi-pass"), desc="Spawn a command using a prompt widget"),
-    # vscode recents
-    Key([mod], "o", lazy.spawn("rofi -show vscode-recent"), desc="VSCode recents"),    
-    # vscode recents
-    Key([mod], "v", lazy.spawn("xfce4-clipman-history"), desc="VSCode recents"),
+    # rofi window switcher
+    Key([mod], "w", lazy.spawn("rofi -show window"), desc="Window Switcher"),    
+    # clipman
+    Key([mod], "v", lazy.spawn("xfce4-clipman-history"), desc="Clipman History"),
     # screenshot
     Key([], "Print", lazy.spawn("xfce4-screenshooter"), desc="Take a screenshot")
 ]
