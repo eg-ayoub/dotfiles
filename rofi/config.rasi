@@ -1,10 +1,7 @@
-//@theme "/home/ayoub/.local/share/rofi/themes/squared-everforest.rasi"
-
 configuration {
-	modi: "drun,run,window,vscode-recent";
+	modi: "drun,run,window,combi";
+    combi-modi: "window,drun";
     show-icons:                 true;
 	drun-display-format:        "{name}";
-	window-format:              "{w} | {c} | {t}";
-}@theme "/home/ayoub/.local/share/rofi/themes/rounded-blue-dark.rasi"
-//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
-@theme "/home/ayoub/.local/share/rofi/themes/simple-tokyonight.rasi"
+	window-format:              "{c} - {t:10} | {w}";
+}@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
