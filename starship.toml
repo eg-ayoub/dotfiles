@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$username$hostname$directory$git_branch$git_status$git_state
+$username$hostname$directory$git_branch$git_status$git_state$python
 $character"""
 
 command_timeout = 10000
@@ -16,4 +16,8 @@ format = '[:](bold green)[$path]($style)[$read_only]($read_only_style) '
 [character]
 success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'
+
+[python]
+format = '[${symbol}\(($virtualenv)|($version)\)]($style)'
+version_format = '${major}.${minor}'
 
