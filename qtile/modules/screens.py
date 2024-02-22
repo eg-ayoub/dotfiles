@@ -8,8 +8,8 @@ config = get_config()
 
 bar_progs = [
         (find_icon("alacritty"), "alacritty", "terminal"),
-        # (find_icon("vscode"), "code", "code"),
-        (find_icon("chrome"), "google-chrome-stable", "chrome"),
+        (find_icon("google-chrome"), "google-chrome-stable", "chrome"),
+        (find_icon("firefox"), "firefox", "firefox"),
         (find_icon("slack"), "slack", "slack"),
         (find_icon("logseq"), "logseq", "logseq"),
 ]
@@ -82,6 +82,23 @@ screens = [
                 widget.Systray(
                     background=config["bar"]["colors"]["background"]["normal"],
                 ),
+                # volume icon
+                # battery percent
+                widget.Battery(
+                    format="{char}{percent:2.0%}",
+                    low_percentage=0.2,
+                    update_interval=5,
+                    charge_char="󱐋",
+                    not_charging_char="",
+                    discharge_char="",
+                    empty_char="",
+                    unknown_char="",
+                    background=config["bar"]["colors"]["background"]["normal"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                    low_foregrounf=config["bar"]["colors"]["urgent"],
+                    font=config["bar"]["main"]["font"]["normal"],
+                    fontsize=config["bar"]["main"]["font"]["size"],
+                ),
                 widget.Sep(),
                 widget.Sep(),
                 # time
@@ -94,8 +111,7 @@ screens = [
                 ),
                 # keyboard layout
                 widget.KeyboardLayout(
-                    configured_keyboards=['us altgr-intl', 'fr'],
-                    option='grp:alt_space_toggle',
+                    configured_keyboards=['us', 'fr'],
                     fontsize=config["bar"]["main"]["font"]["size"],
                     font=config["bar"]["main"]["font"]["bold"],
                     background=config["bar"]["colors"]["background"]["normal"],

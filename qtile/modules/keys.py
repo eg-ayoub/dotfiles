@@ -2,7 +2,7 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from .utils import run_local
+from .utils import run_local, notify_brightness
 
 # mod key
 mod = "mod4"
@@ -49,7 +49,7 @@ keys = [
     Key([mod, "control"], "p", lazy.layout.grow(), desc="Grow window"),
     Key([mod, "control"], "m", lazy.layout.shrink(), desc="Shrink window"),
     # terminal
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Dropdown terminal"),
     # toggle between layouts
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     # kill window
@@ -66,6 +66,19 @@ keys = [
     Key([mod], "w", lazy.spawn("rofi -show window"), desc="Window Switcher"),    
     # clipman
     Key([mod], "v", lazy.spawn("xfce4-clipman-history"), desc="Clipman History"),
-    # screenshot
-    Key([], "Print", lazy.spawn("xfce4-screenshooter"), desc="Take a screenshot")
+     # screenshot
+    Key([], "Print", lazy.spawn("xfce4-screenshooter"), desc="Take a screenshot"),
+    # change kb layout
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next Keyboard Layout"), 
+    # handle brightness up
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn("brightnessctl -d intel_backlight set +5%"),
+        lazy.function(notify_brightness),
+        desc='Increase device brightness by 5%',
+    ),
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn("brightnessctl -d intel_backlight set 5%-"),
+        lazy.function(notify_brightness),
+        desc='Decrease device brightness by 5%',
+    ),
 ]

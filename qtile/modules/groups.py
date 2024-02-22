@@ -26,7 +26,7 @@ groups = [
 ]
 
 keys.extend([
-    Key([mod], "space", lazy.group["dropdown"].dropdown_toggle("terminal"))
+    Key([mod], "g", lazy.group["dropdown"].dropdown_toggle("terminal"))
 ])
 
 for index, group in enumerate(groups[1:]):
