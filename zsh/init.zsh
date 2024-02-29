@@ -13,6 +13,7 @@ antigen apply
 
 alias gfpush="ggpush --force"
 alias lssh="TERM=xterm ssh -F ssh_config"
+alias lscp="scp -F ssh_config"
 alias nv="nvim ."
 eval "$(starship init zsh)"
 
