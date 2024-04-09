@@ -1,5 +1,8 @@
 # based on https://unpkg.com/browse/alacritty-themes@4.1.5/themes/ 
 
+[font]
+size = 8.0
+
 [font.normal]
 family = "Inconsolata Nerd Font"
 
