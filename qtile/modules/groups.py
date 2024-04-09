@@ -16,17 +16,29 @@ groups = [
             DropDown(
                 "terminal",
                 terminal,
+                x=config["scratch"]["term"]["x"],
+                y=config["scratch"]["term"]["y"],
                 width=config["scratch"]["term"]["width"],
                 height=config["scratch"]["term"]["height"],
                 opacity=config["scratch"]["term"]["opacity"],
-            )
+            ),
+            DropDown(
+                "files",
+                "thunar",
+                x=config["scratch"]["files"]["x"],
+                y=config["scratch"]["files"]["y"],
+                width=config["scratch"]["files"]["width"],
+                height=config["scratch"]["files"]["height"],
+                opacity=config["scratch"]["files"]["opacity"],
+            ),
         ],
     ),
     *[Group(name) for name in group_names],
 ]
 
 keys.extend([
-    Key([mod], "g", lazy.group["dropdown"].dropdown_toggle("terminal"))
+    Key([mod], "g", lazy.group["dropdown"].dropdown_toggle("terminal")),
+    Key([mod], "e", lazy.group["dropdown"].dropdown_toggle("files")),
 ])
 
 for index, group in enumerate(groups[1:]):

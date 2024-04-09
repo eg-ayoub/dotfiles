@@ -6,13 +6,13 @@ from .utils import get_config, parse_title, find_icon
 
 config = get_config()
 
-bar_progs = [
-        (find_icon("alacritty"), "alacritty", "terminal"),
-        (find_icon("google-chrome"), "google-chrome-stable", "chrome"),
-        (find_icon("firefox"), "firefox", "firefox"),
-        (find_icon("slack"), "slack", "slack"),
-        (find_icon("logseq"), "logseq", "logseq"),
-]
+#bar_progs = [
+#        (find_icon("alacritty"), "alacritty", "terminal"),
+#        (find_icon("google-chrome"), "google-chrome-stable", "chrome"),
+#        (find_icon("firefox"), "firefox", "firefox"),
+#        (find_icon("slack"), "slack", "slack"),
+#        (find_icon("logseq"), "logseq", "logseq"),
+#]
 
 screens = [
     Screen(
@@ -28,10 +28,10 @@ screens = [
                 widget.Spacer(
                     length=4,
                 ),
-                widget.Sep(),
-                widget.Sep(),
-                # shortcuts
-                widget.LaunchBar(progs=bar_progs),
+                #widget.Sep(),
+                #widget.Sep(),
+                ## shortcuts
+                #widget.LaunchBar(progs=bar_progs),
                 widget.Sep(),
                 widget.Sep(),
                 # windows
@@ -74,7 +74,9 @@ screens = [
                     urgent_text=config["bar"]["colors"]["urgent"],
                     # font
                     fontsize=config["bar"]["main"]["gbox"]["font"]["size"],
-                    font=config["bar"]["main"]["gbox"]["font"]["normal"]
+                    font=config["bar"]["main"]["gbox"]["font"]["normal"],
+                    # remove callbacks
+                    mouse_callbacks={"Button1": lambda: None},
                 ),
                 widget.Sep(),
                 widget.Sep(),
@@ -154,14 +156,15 @@ screens = [
                 widget.Spacer(
                     length=4,
                 ),
-                widget.Sep(),
-                widget.Sep(),
-                # shortcuts
-                widget.LaunchBar(progs=bar_progs),
+                #widget.Sep(),
+                #widget.Sep(),
+                ## shortcuts
+                #widget.LaunchBar(progs=bar_progs),
                 widget.Sep(),
                 widget.Sep(),
                 # groups
                 widget.GroupBox(
+                    toggle=False,
                     disable_drag=True,
                     rounded=False,
                     padding=config["bar"]["main"]["gbox"]["padding"],
@@ -187,7 +190,9 @@ screens = [
                     urgent_text=config["bar"]["colors"]["urgent"],
                     # font
                     fontsize=config["bar"]["main"]["gbox"]["font"]["size"],
-                    font=config["bar"]["main"]["gbox"]["font"]["normal"]
+                    font=config["bar"]["main"]["gbox"]["font"]["normal"],
+                    # remove callbacks
+                    mouse_callbacks={"Button1": lambda: None},
                 ),
                 widget.Sep(),
                 widget.Sep(),
@@ -204,6 +209,13 @@ screens = [
                     font=config["bar"]["main"]["font"]["normal"],
                     parse_text=parse_title,
                 ),
+                # layout
+                widget.CurrentLayoutIcon(
+                    scale=0.65,
+                    background=config["bar"]["colors"]["background"]["normal"],
+                    foreground=config["bar"]["colors"]["foreground"]["bright"],
+                ),
+
             ],
             config["bar"]["secondary"]["height"],
             background=config["bar"]["colors"]["background"]["normal"],

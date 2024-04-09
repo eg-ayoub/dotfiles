@@ -5,14 +5,23 @@ from .utils import get_config
 config = get_config()
 
 layouts = [
-    layout.MonadTall(
-        margin=config["layout"]["mtall"]["margin"],
-        border_focus=config["layout"]["colors"]["focus"],
-        border_normal=config["layout"]["colors"]["normal"],
-        ratio=config["layout"]["mtall"]["ratio"],
-        max_ratio=config["layout"]["mtall"]["max_ratio"],
-        min_ratio=config["layout"]["mtall"]["min_ratio"],
-    ),
+    layout.Bsp(),
+    # layout.MonadTall(
+    #     margin=config["layout"]["mtall"]["margin"],
+    #     border_focus=config["layout"]["colors"]["focus"],
+    #     border_normal=config["layout"]["colors"]["normal"],
+    #     ratio=config["layout"]["mtall"]["ratio"],
+    #     max_ratio=config["layout"]["mtall"]["max_ratio"],
+    #     min_ratio=config["layout"]["mtall"]["min_ratio"],
+    # ),
+    # layout.MonadWide(
+    #     margin=config["layout"]["mtall"]["margin"],
+    #     border_focus=config["layout"]["colors"]["focus"],
+    #     border_normal=config["layout"]["colors"]["normal"],
+    #     ratio=config["layout"]["mtall"]["ratio"],
+    #     max_ratio=config["layout"]["mtall"]["max_ratio"],
+    #     min_ratio=config["layout"]["mtall"]["min_ratio"],
+    # ),
     layout.Max(),
 ]
 
