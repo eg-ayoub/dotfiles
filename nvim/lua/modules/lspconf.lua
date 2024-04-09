@@ -90,6 +90,11 @@ require 'lspconfig'.cmake.setup {
     capabilities = capabilities,
 }
 
+-- Nix LS
+require 'lspconfig'.nixd.setup {
+    capabilities = capabilities,
+}
+
 -- LUA LS
 require 'lspconfig'.lua_ls.setup {
     on_init = function(client)
